@@ -1,0 +1,9 @@
+{
+    "name": "com.securevault.app",
+    "description": "SecureVault Password Manager",
+    "path": "/usr/local/bin/securevault-native-host",
+    "type": "stdio",
+    "allowed_origins": [
+        "chrome-extension://YOUR_EXTENSION_ID_HERE/"
+    ]
+}

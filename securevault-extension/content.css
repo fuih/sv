@@ -1,0 +1,282 @@
+/* SecureVault Content Script Overlay Styles */
+
+.securevault-overlay {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #f0f6fc;
+}
+
+.sv-overlay-container {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    max-height: 320px;
+}
+
+.sv-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #30363d;
+    background: #0d1117;
+}
+
+.sv-logo {
+    font-size: 18px;
+}
+
+.sv-title {
+    font-weight: 600;
+    font-size: 14px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sv-badge {
+    margin-left: auto;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(88, 166, 255, 0.15);
+    color: #58a6ff;
+    border-radius: 10px;
+}
+
+.sv-content {
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+/* Loading */
+.sv-loading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 16px;
+    color: #8b949e;
+    font-size: 13px;
+}
+
+.sv-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #30363d;
+    border-top-color: #58a6ff;
+    border-radius: 50%;
+    animation: sv-spin 0.8s linear infinite;
+}
+
+@keyframes sv-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Empty state */
+.sv-empty {
+    padding: 20px 16px;
+    text-align: center;
+}
+
+.sv-empty p {
+    color: #8b949e;
+    font-size: 13px;
+    margin: 0;
+}
+
+.sv-hint {
+    margin-top: 4px !important;
+    font-size: 12px !important;
+    color: #6e7681 !important;
+}
+
+/* Password entries */
+.sv-entry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.sv-entry:hover {
+    background: #21262d;
+}
+
+.sv-entry-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.sv-entry-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.sv-entry-username {
+    font-weight: 500;
+    font-size: 14px;
+    color: #f0f6fc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sv-entry-site {
+    font-size: 12px;
+    color: #6e7681;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Generated password */
+.sv-generated {
+    padding: 16px;
+}
+
+.sv-password-preview {
+    font-family: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+    font-size: 15px;
+    text-align: center;
+    padding: 14px;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    word-break: break-all;
+    margin-bottom: 12px;
+    color: #f0f6fc;
+}
+
+/* Strength indicator */
+.sv-strength {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.sv-strength-bar {
+    flex: 1;
+    height: 4px;
+    background: #21262d;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.sv-strength-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.sv-strength-fill.sv-weak {
+    width: 25%;
+    background: #f85149;
+}
+
+.sv-strength-fill.sv-fair {
+    width: 50%;
+    background: #d29922;
+}
+
+.sv-strength-fill.sv-strong {
+    width: 75%;
+    background: #58a6ff;
+}
+
+.sv-strength-fill.sv-verystrong {
+    width: 100%;
+    background: #3fb950;
+}
+
+.sv-strength-label {
+    font-size: 12px;
+    color: #8b949e;
+    font-weight: 500;
+}
+
+/* Buttons */
+.sv-actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.sv-btn {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.sv-btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.sv-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.sv-btn-secondary {
+    background: #21262d;
+    color: #f0f6fc;
+    border: 1px solid #30363d;
+}
+
+.sv-btn-secondary:hover {
+    background: #30363d;
+}
+
+/* Save checkbox */
+.sv-save-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #8b949e;
+    cursor: pointer;
+}
+
+.sv-save-check input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #58a6ff;
+}
+
+/* Scrollbar */
+.sv-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sv-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sv-content::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 3px;
+}

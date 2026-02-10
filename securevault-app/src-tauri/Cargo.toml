@@ -1,0 +1,42 @@
+[package]
+name = "securevault-app"
+version = "0.1.0"
+description = "A Tauri App"
+authors = ["you"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "securevault_app_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Security & Cryptography
+argon2 = "0.5"                          # Key derivation (Argon2id)
+aes-gcm = "0.10"                        # AES-256-GCM encryption
+rand = "0.8"                            # Cryptographic randomness
+zeroize = { version = "1", features = ["derive"] }  # Secure memory wiping
+
+# Database
+rusqlite = { version = "0.31", features = ["bundled"] }  # SQLite
+
+# Utilities
+base64 = "0.21"                         # Encoding
+hex = "0.4"                             # Hex encoding
+thiserror = "1"                         # Error handling
+once_cell = "1"                         # Lazy statics
+parking_lot = "0.12"                    # Better mutex
+dirs = "5"                              # Platform-specific dirs
+
